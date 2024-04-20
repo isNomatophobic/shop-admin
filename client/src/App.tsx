@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import './shared/styles/index.css'
 
 function App() {
