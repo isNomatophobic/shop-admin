@@ -1,12 +1,12 @@
 import 'shared/styles/index.css'
 import 'shared/styles/theme.css'
 
-import { Input } from 'shared/components'
+import SampleForm from 'SampleForm'
 
 function App() {
   return (
     <div className="text-3xl font-bold underline">
-      <Input type="email" placeholder="Email" width="100px" />
+      <SampleForm />
     </div>
   )
 }
