@@ -13,7 +13,7 @@ import {
 } from './ui'
 
 export interface FormInputProps<T extends BaseModel>
-  extends Pick<InputProps, 'type' | 'placeholder'> {
+  extends Required<Pick<InputProps, 'type' | 'placeholder'>> {
   name: Path<T>
   control: Control
   description?: string
