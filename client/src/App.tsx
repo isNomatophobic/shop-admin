@@ -1,8 +1,15 @@
 import 'shared/styles/index.css'
 import 'shared/styles/theme.css'
 
+import Login from 'features/login/Login'
+
+/* Global Todo by importance
+-Routes
+-Translations
+*/
+
 function App() {
-  return <div className="text-3xl font-bold underline"></div>
+  return <Login />
 }
 
 export default App
