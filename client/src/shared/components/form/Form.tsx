@@ -1,0 +1,41 @@
+import { ReactElement, useMemo } from 'react'
+import { Control, DefaultValues, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { BaseModel } from 'shared/types'
+import { Schema, z, ZodSchema } from 'zod'
+
+import { ShadcnForm } from '../ui'
+
+import { getDefaultValuesFromScheme } from './utilts'
+
+export interface FormProps<T extends BaseModel> {
+  schema: Schema<Partial<T>>
+  defaultValues?: DefaultValues<Partial<T>>
+  onSubmit: (values: z.infer<ZodSchema>) => void
+  children: (control: Control<Partial<T>>) => ReactElement
+}
+
+export const Form = <T extends BaseModel>({
+  schema,
+  defaultValues,
+  onSubmit,
+  children
+}: FormProps<T>) => {
+  const _defaultValues = useMemo(
+    () => getDefaultValuesFromScheme<T>(schema),
+    [schema]
+  )
+
+  const form = useForm<z.infer<typeof schema>>({
+    resolver: zodResolver(schema),
+    defaultValues: { ..._defaultValues, ...defaultValues }
+  })
+
+  return (
+    <ShadcnForm {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        {children(form.control)}
+      </form>
+    </ShadcnForm>
+  )
+}
