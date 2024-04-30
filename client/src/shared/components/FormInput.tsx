@@ -18,6 +18,7 @@ export interface FormInputProps<T extends BaseModel>
   control: Control
   description?: string
   label?: string
+  className?: string
 }
 export const FormInput = <T extends BaseModel>({
   name,
@@ -25,7 +26,8 @@ export const FormInput = <T extends BaseModel>({
   placeholder,
   control,
   label,
-  description
+  description,
+  className
 }: FormInputProps<T>) => {
   return (
     <FormField
@@ -35,7 +37,12 @@ export const FormInput = <T extends BaseModel>({
         <FormItem>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input placeholder={placeholder} type={type} {...field} />
+            <Input
+              placeholder={placeholder}
+              type={type}
+              {...field}
+              className={className}
+            />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
