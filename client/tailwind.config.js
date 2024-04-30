@@ -1,5 +1,4 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
-const { fontFamily } = require('tailwindcss/defaultTheme')
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,10 +7,12 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px'
-      }
+      padding: '2rem'
+    },
+    screens: {
+      'tablet-ls': { max: '1300px' },
+      tablet: { max: '900px' },
+      phone: { max: '480px' }
     },
     extend: {
       colors: {
@@ -55,7 +56,10 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans]
+        sans: ['var(--font-roboto)', ...fontFamily.sans]
+      },
+      backgroundImage: {
+        'login-banner': "url('src/shared/assets/images/login-banner.png')"
       },
       keyframes: {
         'accordion-down': {
