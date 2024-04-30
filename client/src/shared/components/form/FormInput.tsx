@@ -1,5 +1,4 @@
-import { Control, Path } from 'react-hook-form'
-import { BaseModel } from 'shared/types'
+import { Control } from 'react-hook-form'
 
 import {
   FormControl,
@@ -10,17 +9,17 @@ import {
   FormMessage,
   Input,
   InputProps
-} from './ui'
+} from '../ui'
 
-export interface FormInputProps<T extends BaseModel>
+export interface FormInputProps
   extends Required<Pick<InputProps, 'type' | 'placeholder'>> {
-  name: Path<T>
+  name: string
   control: Control
   description?: string
   label?: string
   className?: string
 }
-export const FormInput = <T extends BaseModel>({
+export const FormInput = ({
   name,
   type,
   placeholder,
@@ -28,7 +27,7 @@ export const FormInput = <T extends BaseModel>({
   label,
   description,
   className
-}: FormInputProps<T>) => {
+}: FormInputProps) => {
   return (
     <FormField
       control={control}
