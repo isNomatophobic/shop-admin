@@ -1,3 +1,4 @@
+import { requiredValidation } from 'shared'
 import { Button, Column, Form, Row } from 'shared/components'
 import { UserModel } from 'shared/types'
 import { z } from 'zod'
@@ -5,8 +6,8 @@ import { z } from 'zod'
 import LoginInput from './LoginInput'
 
 const schema = z.object({
-  username: z.string(),
-  password: z.string()
+  username: z.string().superRefine(requiredValidation),
+  password: z.string().superRefine(requiredValidation)
 })
 
 const LoginForm = () => {
