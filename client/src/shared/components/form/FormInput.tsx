@@ -33,7 +33,7 @@ export const FormInput = ({
       control={control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className="w-full">
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             <Input

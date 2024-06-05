@@ -13,13 +13,15 @@ export interface FormProps<T extends BaseModel> {
   defaultValues?: DefaultValues<Partial<T>>
   onSubmit: (values: z.infer<ZodSchema>) => void
   children: (control: Control<Partial<T>>) => ReactElement
+  className?: string
 }
 
 export const Form = <T extends BaseModel>({
   schema,
   defaultValues,
   onSubmit,
-  children
+  children,
+  className
 }: FormProps<T>) => {
   const _defaultValues = useMemo(
     () => getDefaultValuesFromScheme<T>(schema),
@@ -33,7 +35,7 @@ export const Form = <T extends BaseModel>({
 
   return (
     <ShadcnForm {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={className}>
         {children(form.control)}
       </form>
     </ShadcnForm>

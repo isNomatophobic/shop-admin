@@ -13,7 +13,7 @@ const schema = z.object({
 const LoginForm = () => {
   const onSubmit = () => {}
   return (
-    <Form<UserModel> schema={schema} onSubmit={onSubmit}>
+    <Form<UserModel> schema={schema} onSubmit={onSubmit} className="pl-3">
       {(control) => (
         <Row className="w-full justify-center">
           <Column className="w-[380px] items-center gap-10">
