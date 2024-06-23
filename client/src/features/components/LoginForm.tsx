@@ -29,7 +29,7 @@ const LoginForm = () => {
               name="password"
               placeholder="Enter your password"
             />
-            <Button className="tablet:w-full ml-auto px-10">Login</Button>
+            <Button className="ml-auto px-10 tablet:w-full">Login</Button>
           </Column>
         </Row>
       )}
