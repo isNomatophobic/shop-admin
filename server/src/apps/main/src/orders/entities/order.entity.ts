@@ -1,1 +1,6 @@
-export class Order {}
+import { BaseEntity } from "./base.entity";
+
+export class Order extends BaseEntity {
+
+
+}
