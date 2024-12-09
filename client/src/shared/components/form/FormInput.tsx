@@ -1,4 +1,4 @@
-import { Control } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 
 import {
   FormControl,
@@ -14,7 +14,6 @@ import {
 export interface FormInputProps
   extends Required<Pick<InputProps, 'type' | 'placeholder'>> {
   name: string
-  control: Control
   description?: string
   label?: string
   className?: string
@@ -23,11 +22,11 @@ export const FormInput = ({
   name,
   type,
   placeholder,
-  control,
   label,
   description,
   className
 }: FormInputProps) => {
+  const { control } = useFormContext()
   return (
     <FormField
       control={control}
